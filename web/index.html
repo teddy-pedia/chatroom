@@ -54,27 +54,14 @@
             <div class="chatroom-wrap" id="chatroom-wrap">
                 <!-- 左侧部分 -->
                 <div class="left">
-                    <ul>
-                        <li>A</li>
-                        <li>B</li>
-                        <li>C</li>
-                    </ul>
+                    <ul id="friend_list"></ul>
                 </div>
                 <!-- 右侧部分 -->
                 <div class="right">
                     <!-- 标题 -->
                     <div class="title">Teddypedia</div>
                     <!-- 聊天消息 -->
-                    <div class="msg-box" id="msg-box">
-                        <div class="msg">
-                            <img src="./1.png" alt="" class="avator" />
-                            <div class="text">hello</div>
-                        </div>
-                        <div class="msg msg-me">
-                            <img src="./1.png" alt="" class="avator" />
-                            <div class="text">how are you</div>
-                        </div>
-                    </div>
+                    <div class="msg-box" id="msg-box"></div>
                     <!-- 底部，发送消息 -->
                     <div class="footer">
                         <input id="input" class="msg-input" type="text" />
@@ -83,25 +70,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            const socket = io({
-                query: {
-                    username: 'liningjing',
-                    password: 'hello',
-                },
-            })
-            // 向服务端发送消息，socket的标识符是chatMessage
-            socket.emit('chatMessage', 'hello from client')
-            socket.on('message', (msg) => {
-                if (msg === 'success') {
-                    // 登录成功
-                    console.log('登录成功')
-                } else {
-                    // 登录失败
-                    console.log('登录失败')
-                }
-            })
-        </script>
-        <!-- <script src="./index.js"></script> -->
+        <script src="./index.js"></script>
     </body>
 </html>
